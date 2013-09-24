@@ -1,0 +1,262 @@
+.well, .breadcrumb {
+    background-color: #fbfbfb !important;
+}
+
+.container, .container-fluid{
+    max-width: 980px !important;
+}
+
+.fundo {
+    background-color: #fff;
+}
+
+#wrap {
+    min-height: 100%;
+    padding-bottom: 100px;
+}
+
+#sombra {
+    float: left;
+    min-height: 23px;
+    max-width: 980px;
+    margin-top: 8px;
+}
+
+body {
+
+    height: 100%;
+}
+
+#header {
+    background: url(../img/bg-topo.png) repeat-x;
+    height: 154px;
+}
+
+#header h5 {
+    float: left;
+    font-weight: normal;
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+#header .translate {
+    float: right;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+#header .translate a {
+    padding-right: 10px;
+    color: #333;
+}
+
+#header .translate a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+#logo {
+    float: left;
+    margin-left: 35px;
+    margin-top: 20px;
+}
+
+.menu {
+    margin-top: 17px;
+    float: right;
+    margin-bottom: 0;
+}
+
+.menu li {
+    list-style: none;
+    float: left;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-right: 1px solid #ccc;
+    position: relative;
+}
+
+.menu li ul {
+    position: absolute;
+    top: 20px;
+    left: -28px;
+    margin: 0;
+    z-index: 3000;
+    display: none;
+}
+
+.menu  li ul li a {
+    display: block;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    background:#f4f4f4;
+    width: 250px;
+    padding-left: 10px;
+    border-top: 1px solid #fff;
+}
+
+.menu  li ul li a:hover {
+    color: #3c729b;
+}
+
+.menu li:hover ul {
+    display: block;
+}
+
+.noBorder {
+    border: none !important;
+}
+
+.menu li a {
+    font-size: 14px;
+    color: #333;
+}
+
+.menu li a:hover {
+    color: #3c729b;
+    text-decoration: none;
+}
+
+.sites {
+    float: right;
+    margin-top: 45px;
+}
+
+.slogan {
+    color: #3c729b;
+    font-family: Georgia, helvetica, verdana;
+    font-size: 13px;
+}
+
+.espaco {
+    margin-top: 15px;
+}
+
+#footer {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    margin-top: -100px;
+    background: url(../img/bg-footer.png) repeat-x;
+}
+
+#footer .empresas {
+    float: left;
+    margin-left: 15px;
+    margin-top: 20px;
+    border-right: 1px solid #999;
+}
+
+#footer .empresas h6 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    color: #666;
+}
+
+#footer .empresas span {
+    padding-right: 15px;
+}
+
+#footer .empresas span a {
+    color: #666;
+    font-size: 13px;
+}
+
+.footerLogo {
+    float: left;
+    margin-top: 25px;
+}
+
+.company h6 {
+    color: #888;
+    margin-top: 20px !important;
+    margin-bottom: 0 !important;
+    text-align: center;
+}
+
+.endereco p {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.height {
+    height : 1000px;
+}
+
+
+.content-block {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.content-block-header {
+    height: 30px;
+    background-color: #e6e6e6;
+    border-bottom: 1px solid #ccc;
+}
+
+.content-block-header span {
+    color: #3c729a;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 0 0 0 10px;
+    margin: 0;
+    line-height: 30px;
+}
+
+.content-body {
+    padding: 10px;
+    background-color: #fff;
+}
+
+.content-body img {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.content-body h3 {
+    margin-top: 0px !important;
+}
+
+.content-block hr {
+    margin-bottom: 5px !important;
+}
+
+.content-block-footer {
+    background-color: #fff;
+}
+
+.content-block-footer .mais {
+    float: right;
+    margin: 0;
+    padding: 0;
+}
+
+/******* classes auxiliares ********/
+
+.flt-left {
+    float: left;
+}
+
+.flt-right {
+    float: right;
+}
+
+
+/******* oculta a barra do google translator *******/
+#google_translate_element, 
+.goog-te-banner-frame, 
+.goog-te-balloon-frame, 
+#goog-gt-tt, 
+.goog-te-balloon-frame, 
+.goog-tooltip, 
+.goog-tooltip:hover { 
+    display:none !important; 
+}
+html, body { 
+    top: 0 !important; 
+}

@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row-fluid">
+        <div class="span12">
+
+            <div id="jCrumbs" class="breadCrumb module">
+                <ul>
+                    <li>
+                        <a href="/admin"><i class="icon-home"></i></a>
+                    </li>
+                    <li>
+                        <a href="#">Listagem de Albuns</a>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="/admin/albuns/add" class="btn btn-success">+ Novo Album</a>
+
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12">
+            <table class="table table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th width="10%" class="align-center">#id</th>
+                        <th width="9%" class="align-center">Foto Capa</th>
+                        <th>Nome</th>
+                        <th width="15%" class="align-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php echo (sizeof($this->albuns) == 0 ? '<tr><td colspan="4">Nenhum registro encontrado!</td></tr>' : ''); ?>
+
+                    <?php foreach ($this->albuns as $album) : ?>
+                        <tr>
+                            <td class="align-center vertical-center"><?php echo $album->id; ?></td>
+                            <td class="align-center vertical-center">
+                                <img src="/<?php echo ($album->imagemCapa == null ? 'img/sem-imagem.jpg' : $album->imagemCapa); ?>">
+                            </td>
+                            <td class="vertical-center"><?php echo $album->nome; ?></td>
+                            <td class="align-center vertical-center">
+                                <a href="/admin/albuns/edit/id/<?php echo $album->id; ?>" class="icon-edit" alt="Editar Album" title="Editar Album"></a>
+                                &nbsp;
+                                <a href="/admin/albuns/fotos/id/<?php echo $album->id; ?>" class="icon-tasks" alt="Gerenciar Fotos" title="Gerenciar Fotos"></a>
+                                &nbsp;
+                                <a href="/admin/albuns/delete/id/<?php echo $album->id; ?>" class="icon-trash confirm" alt="Excluir Album" title="Excluir Album"></a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

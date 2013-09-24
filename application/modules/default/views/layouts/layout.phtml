@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Instituto Vicentinos</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="/css/bootstrap-responsive.min.css" type="text/css" />
+        <link rel="stylesheet" href="/css/site.css" type="text/css" />
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/jCarrousel.js"></script>
+        <script type="text/javascript" src="/js/bootstrap-carousel.js"></script>
+
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+                $('.carousel').carousel({
+                    interval: 9000
+                });
+            });
+
+            function ChangeLang(a) {
+                var b, elemento = "";
+                if (document.createEvent) {
+                    var c = document.createEvent("HTMLEvents");
+                    c.initEvent("click", true, true);
+                }
+                if (a === 'pt') {
+                    elemento = $(".goog-te-banner-frame:eq(0)").contents().find("button[id*='restore']");
+                } else {
+                    switch (a) {
+                        case 'es':
+                            b = "espanhol";
+                            break;
+                        case 'en':
+                            b = "ing";
+                            break;
+                    }
+                    elemento = $(".goog-te-menu-frame:eq(0)").contents().find("span:contains('" + b + "')");
+                }
+                if (elemento.length > 0) {
+                    if (document.createEvent) {
+                        elemento[0].dispatchEvent(c);
+                    } else {
+                        elemento[0].click();
+                    }
+                }
+            }
+
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'pt',
+                    autoDisplay: false,
+                    includedLanguages: 'es,en',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                },
+                'google_translate_element');
+            }
+
+        </script>
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="header">
+                <div class="container">
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <h1 id="logo">
+                                <a href="#"><img src="/img/logo.png" alt="" /></a>
+                            </h1>
+
+                            <h5><i class="slogan">"Um mundo melhor é possível a partir da vontade humana"</i></h5>
+
+                            <div id="google_translate_element" class="sites"></div>
+                            <div id="google_translate_element"></div>
+                            <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+                            <div class="translate">
+                                <a href="javascript:void(0);" class="pt" onclick="ChangeLang('pt');" title="Traduzir para portugu&ecirc;s"><img src="/img/portugues.gif" /></a></li>
+                                <a href="javascript:void(0);" class="en" onclick="ChangeLang('en');" title="Translate to English"><img src="/img/english.gif"  /></a></li>
+                                <a href="javascript:void(0);" class="es" onclick="ChangeLang('es');" title="Traducir al espa&ntilde;ol"><img src="/img/espanol.gif"  /></a></li>
+                            </div>
+
+                            <ul class="menu">
+                                <li><a href="/home">Home</a></li>
+                                <li><a href="/historico">Instituto</a></li>
+                                <li><a href="#">Projetos</a>
+                                    <ul>
+                                        <li class="noBorder"><a href="/projeto-de-inclusao-digital">PID - Projeto de Inclusão Digital</a></li>
+                                        <li class="noBorder"><a href="/projeto-pintando-oportunidade">PPO - Projeto Pintando Oportunidade</a></li>
+                                        <li class="noBorder"><a href="/projeto-batendo-um-bolao">PBB - Projeto Batendo um Bolão</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/fotos">Fotos</a></li>
+                                <li class="noBorder"><a href="/contato">Fale Conosco</a></li>
+                            </ul>
+
+                            <div id="sombra"><img src="/img/sombra.png" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="espaco"></div>
+
+            <div class="container" id="content">
+                <?php echo $this->layout()->content; ?>
+            </div>    
+        </div>
+
+        <div id="footer">
+            <div class="container">
+                <img src="/img/logo-rodape.png" alt="" class="footerLogo"/>
+                <div class="empresas">
+                    <h6>EMPRESAS:</h6>
+                    <span class="linkSites"><a href="http://www.vicentinos.com.br" target="_blank">www.vicentinos.com.br</a></span>
+                    <span class="linkSites"><a href="http://www.vhsplastic.com.br" target="_blank">www.vhsplastic.com.br</a></span>
+                    <span class="linkSites"><a href="http://www.viql.com.br" target="_blank">www.viql.com.br</a></span>
+                    <br/>
+                    <span class="linkSites"><a href="http://www.loydiembalagens.com.br" target="_blank">www.loydi.com.br</a></span>
+                    <span class="linkSites"><a href="http://www.carbet.com.br" target="_blank">www.carbet.com.br</a></span>
+                </div>
+
+                <div class="company">
+                    <h6>&copy; Instituto Vicentinos 2013.  <span>Todos os direitos reservados</span></h6>
+                    <div class="endereco">
+                        <p>Av. Cristovão Colombo, 4127 - Sala 01 - Pq Industrial</p> 
+                        <p>Fone: (44) 3232-9278 - Marialva - PR</p> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+

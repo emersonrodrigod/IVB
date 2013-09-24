@@ -1,0 +1,43 @@
+<div class="row-fluid">
+    <div class="span12">
+        <ul class="dshb_icoNav tac">
+            <li id="add-movement"><a href="javascript:void(0)" style="background-image: url(/lib/img/gCons/add-item.png)"> <?php echo $this->translate('label.novaNoticia'); ?></a></li>
+            <li><a href="/movimentacao" style="background-image: url(/lib/img/gCons/screen.png)"> <?php echo $this->translate('label.novoBanner'); ?></a></li>
+            <li><a href="/agenda/calendario" style="background-image: url(/lib/img/gCons/male-user.png)" id="nav-events"> <?php echo $this->translate('label.novoUsuario'); ?></a></li>
+            <li><a href="/agenda/calendario" style="background-image: url(/lib/img/gCons/happy-face.png)" id="nav-events"> <?php echo $this->translate('label.novoAlbum'); ?></a></li>
+        </ul>
+    </div>
+</div>
+
+<br/>
+
+<div id="sortable_panels">
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="w-box">    
+                <div class="w-box-header">
+                    Usuários
+                </div>
+                <div class="w-box-content cnt_a">
+                    <div id="box_users">
+                        <div style="padding: 50px; text-align: center;"><img src="/lib/img/ajax_loader.gif" title="Carregando..."></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="span6">
+            <div class="w-box">    
+                <div class="w-box-header">
+                    <?php echo $this->translate('WIDGET_BOX_OVERVIEW') ?>
+                </div>
+                <div class="w-box-content cnt_a">
+                    <div id="box_overview">
+                      
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

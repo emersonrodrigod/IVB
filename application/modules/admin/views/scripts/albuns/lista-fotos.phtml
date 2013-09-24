@@ -1,0 +1,16 @@
+<div style="text-align: center !important;">
+
+    <?php echo (sizeof($this->fotos) == 0 ? '<div class="alert alert-info">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <strong>Ainda Sem Fotos</strong></div>' : ''); ?>
+
+    <?php foreach ($this->fotos as $foto) : ?>
+        <div class="galeria">
+            <img src="/<?php echo $foto->thumb; ?>" alt="" />
+
+            <p>
+                <a href="javascript:void(0);" title="Remover" class="icon-trash delete" id="<?php echo $foto->id; ?>" album="<?php echo $foto->id_album; ?>"></a>
+            </p>
+        </div>
+    <?php endforeach; ?>
+</div>
