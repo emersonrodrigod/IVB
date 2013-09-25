@@ -203,5 +203,35 @@ class Admin_AlbunsController extends Zend_Controller_Action {
         $album->update($data, 'id = ' . $this->_getParam('album'));
     }
 
+    /*
+     * Remove um album e todas as suas fotos do banco de dados
+     * também remove os arquivos de imagem nas pastas correspondentes
+     */
+
+    public function removeAlbumAction() {
+        $this->_helper->layout()->disableLayout();
+        $this->getHelper('viewRenderer')->setNoRender();
+
+        $album = new Album();
+        $atual = $album->find(intval($this->_getParam('id')))->current();
+
+        $fotos = $atual->findDependentRowset('AlbumFotos');
+
+        $albumFotos = new AlbumFotos();
+
+        /*
+         * Remove todas as fotos primeiramente
+         */
+        foreach ($fotos as $foto) {
+            $fotoAtual = $albumFotos->find($foto->id)->current();
+            unlink($foto->caminho);
+            unlink($foto->thumb);
+            $fotoAtual->delete();
+        }
+
+        $atual->delete();
+        $this->_redirect('/admin/albuns');
+    }
+
 }
 
