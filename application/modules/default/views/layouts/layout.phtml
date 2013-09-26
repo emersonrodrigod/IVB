@@ -5,6 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
         <link rel="stylesheet" href="/css/bootstrap-responsive.min.css" type="text/css" />
+        <link rel="stylesheet" href="/gallery/css/bootstrap-image-gallery.min.css" type="text/css" />
         <link rel="stylesheet" href="/css/site.css" type="text/css" />
 
 
@@ -13,12 +14,29 @@
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/js/jCarrousel.js"></script>
         <script type="text/javascript" src="/js/bootstrap-carousel.js"></script>
+        <script type="text/javascript" src="/gallery/js/bootstrap-image-gallery.min.js"></script>
+        <script type="text/javascript" src="/gallery/js/load-image.js"></script>
 
         <script type="text/javascript">
             jQuery(document).ready(function() {
                 $('.carousel').carousel({
                     interval: 9000
                 });
+            });
+
+            $('#start-slideshow').button().click(function() {
+                var options = $(this).data(),
+                        modal = $(options.target),
+                        data = modal.data('modal');
+                if (data) {
+                    $.extend(data.options, options);
+                } else {
+                    options = $.extend(modal.data(), options);
+                }
+                modal.find('.modal-slideshow').find('i')
+                        .removeClass('icon-play')
+                        .addClass('icon-pause');
+                modal.modal(options);
             });
 
             function ChangeLang(a) {
@@ -68,7 +86,7 @@
                     <div class="row-fluid">
                         <div class="span12">
                             <h1 id="logo">
-                                <a href="#"><img src="/img/logo.png" alt="" /></a>
+                                <a href="/home"><img src="/img/logo.png" alt="" /></a>
                             </h1>
 
                             <h5><i class="slogan">"Um mundo melhor é possível a partir da vontade humana"</i></h5>

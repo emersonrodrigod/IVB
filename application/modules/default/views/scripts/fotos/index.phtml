@@ -1,0 +1,31 @@
+
+<div class="row-fluid">
+    <div class="span12">
+
+        <ul class="breadcrumb">
+            <li>Você está em: </li>
+            <li><a href="/home">Instituto</a> <span class="divider">&raquo;</span></li>
+            <li class="active">Listagem dos álbuns de fotos</li>
+        </ul>
+
+        <h3>Galeria de Fotos</h3>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <table class="table table-bordered table-condensed">
+        <?php foreach ($this->albuns as $album) : ?>
+        <tr>
+            <td width="15%" class="vertical-center">
+                <img src="/<?php echo $album->imagemCapa; ?>" alt="<?php echo $album->nome; ?>"/>
+            </td>
+            <td class="vertical-center">
+                <h4><?php echo $album->nome; ?></h4>
+            </td>
+            <td width="15%" class="vertical-center align-center">
+                <a href="/fotos/visualizar/id/<?php echo $album->id; ?>" class="btn btn-success">Ver Fotos</a>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+</div>

@@ -260,3 +260,14 @@ body {
 html, body { 
     top: 0 !important; 
 }
+
+.align-left {text-align: left !important}
+.align-right {text-align: right !important}
+.align-center {text-align: center !important}
+.vertical-center{vertical-align: middle !important;}
+
+.galeria {
+    text-decoration: none;
+    float: left;
+    margin: 4px;
+}
