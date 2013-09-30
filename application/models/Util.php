@@ -41,7 +41,7 @@ class Util {
     public function sendMail($fromMail, $fromName, $to, $subject, $body) {
         $config['auth'] = 'login';
         $config['username'] = 'emersonrodrigod@gmail.com';
-        $config['password'] = 'forebaforeba090189';
+        $config['password'] = '';
         $config['ssl'] = 'ssl';
         $config['port'] = '465';
 
