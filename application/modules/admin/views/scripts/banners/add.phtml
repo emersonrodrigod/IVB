@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row-fluid">
+        <div class="span12">
+
+            <div id="jCrumbs" class="breadCrumb module">
+                <ul>
+                    <li>
+                        <a href="/admin"><i class="icon-home"></i></a>
+                    </li>
+                    <li>
+                        <a href="/admin/banners">Listagem de Banners</a>
+                    </li>
+                    <li>
+                        <a href="#">Novo Banner</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <form class="form-horizontal well validate" method="post" enctype="multipart/form-data">
+            <fieldset>
+                
+                <p class="f_legend">Novo Banner</p>
+                
+                <div class="control-group">
+                    <label class="control-label">Nome do Banner </label>
+                    <div class="controls">
+                        <input type="text" class="span10" maxlength="150" minlength="2" name="nome" required />
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Arquivo </label>
+                    <div class="controls">
+                        <input type="file" name="arquivo" required />
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        <button class="btn btn-info" type="submit">Gravar</button>
+                        <a href="javascript:history.go(-1);" class="btn btn-danger">Cancelar</a>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

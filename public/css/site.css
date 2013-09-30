@@ -271,3 +271,12 @@ html, body {
     float: left;
     margin: 4px;
 }
+
+/* Tornando o facebook-likeBox responsivo */
+#fb-root {
+    display: none;
+}
+
+.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+    width: 99.9% !important;
+}

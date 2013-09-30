@@ -7,23 +7,27 @@ class Default_IndexController extends Zend_Controller_Action {
     }
 
     public function indexAction() {
-        // action body
+        $banner = new Banner();
+        $this->view->banners = $banner->fetchAll('ativo <> 0');
     }
-    
-    public function historicoAction(){
-    }
-    
-    public function missaoAction(){
-    }
-    
-    public function objetivosAction(){
-    }
-    
-    public function valoresAction(){
+
+    public function historicoAction() {
         
     }
-    
-    public function visaoAction(){
+
+    public function missaoAction() {
+        
+    }
+
+    public function objetivosAction() {
+        
+    }
+
+    public function valoresAction() {
+        
+    }
+
+    public function visaoAction() {
         
     }
 
