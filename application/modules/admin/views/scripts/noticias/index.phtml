@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row-fluid">
+        <div class="span12">
+
+            <div id="jCrumbs" class="breadCrumb module">
+                <ul>
+                    <li>
+                        <a href="/admin"><i class="icon-home"></i></a>
+                    </li>
+                    <li>
+                        <a href="#">Listagem de Notícias</a>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="/admin/noticias/add" class="btn btn-success">+ Nova Notícia</a>
+
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12">
+            <table class="table table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th width="10%" class="align-center">#id</th>
+                        <th>Título</th>
+                        <th width="10%" class="align-center">Data</th>
+                        <th width="15%" class="align-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php echo (sizeof($this->noticias) == 0 ? '<tr><td colspan="4">Nenhum registro encontrado!</td></tr>' : ''); ?>
+
+                    <?php foreach ($this->noticias as $noticia) : ?>
+                        <tr>
+                            <td class="align-center"><?php echo $noticia->id; ?></td>
+                            <td><?php echo $noticia->titulo; ?></td>
+                            <td class="align-center"><?php echo date("d/m/Y",  strtotime($noticia->dataPostagem)); ?></td>
+                            <td class="align-center">
+                                <a href="/admin/noticias/edit/id/<?php echo $noticia->id; ?>" class="icon-edit" alt="Editar Notícia" title="Editar Notícia"></a>
+                                <a href="/admin/noticias/delete/id/<?php echo $noticia->id; ?>" class="icon-trash confirm" alt="Excluir Notícia" title="Excluir Notícia"></a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

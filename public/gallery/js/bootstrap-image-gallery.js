@@ -1,28 +1,13 @@
-/*
- * Bootstrap Image Gallery 2.10
- * https://github.com/blueimp/Bootstrap-Image-Gallery
- *
- * Copyright 2011, Sebastian Tschan
- * https://blueimp.net
- *
- * Licensed under the MIT license:
- * http://www.opensource.org/licenses/MIT
- */
-
-/*jslint nomen: true, regexp: true */
-/*global define, window, document, jQuery */
 
 (function (factory) {
     'use strict';
     if (typeof define === 'function' && define.amd) {
-        // Register as an anonymous AMD module:
         define([
             'jquery',
             'load-image',
             'bootstrap'
         ], factory);
     } else {
-        // Browser globals:
         factory(
             window.jQuery,
             window.loadImage
@@ -30,33 +15,17 @@
     }
 }(function ($, loadImage) {
     'use strict';
-    // Bootstrap Image Gallery is an extension to the Modal dialog of Twitter's
-    // Bootstrap toolkit, to ease navigation between a set of gallery images.
-    // It features transition effects, fullscreen mode and slideshow functionality.
     $.extend($.fn.modal.defaults, {
-        // Delegate to search gallery links from, can be anything that
-        // is accepted as parameter for $():
         delegate: document,
-        // Selector for gallery links:
         selector: null,
-        // The filter for the selected gallery links (e.g. set to ":odd" to
-        // filter out label and thumbnail linking twice to the same image):
         filter: '*',
-        // The index of the first gallery image to show:
         index: 0,
-        // The href of the first gallery image to show (overrides index):
         href: null,
-        // The range of images around the current one to preload:
         preloadRange: 2,
-        // Offset of image width to viewport width:
         offsetWidth: 100,
-        // Offset of image height to viewport height:
         offsetHeight: 200,
-        // Set to true to display images as canvas elements:
         canvas: false,
-        // Shows the next image after the given time in ms (0 = disabled):
         slideshow: 0,
-        // Defines the image division for previous/next clicks:
         imageClickDivision: 0.5
     });
     var originalShow = $.fn.modal.Constructor.prototype.show,
@@ -130,13 +99,10 @@
             this.abortLoad();
             this.stopSlideShow();
             modal.trigger('beforeLoad');
-            // The timeout prevents displaying a loading status,
-            // if the image has already been loaded:
             this._loadingTimeout = window.setTimeout(function () {
                 modal.addClass('modal-loading');
             }, 100);
             oldImg = modal.find('.modal-image').children().removeClass('in');
-            // The timeout allows transition effects to finish:
             window.setTimeout(function () {
                 oldImg.remove();
             }, 3000);

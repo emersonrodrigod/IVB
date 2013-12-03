@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row-fluid">
+        <div class="span12">
+
+            <div id="jCrumbs" class="breadCrumb module">
+                <ul>
+                    <li>
+                        <a href="/admin"><i class="icon-home"></i></a>
+                    </li>
+                    <li>
+                        <a href="#">Listagem de Usuários</a>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="/admin/usuarios/add" class="btn btn-success">+ Novo Usuário</a>
+
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12">
+            <table class="table table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th width="10%" class="align-center">#id</th>
+                        <th>Nome</th>
+                        <th class="align-center">Ativo</th>
+                        <th width="15%" class="align-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php echo (sizeof($this->usuarios) == 0 ? '<tr><td colspan="4">Nenhum registro encontrado!</td></tr>' : ''); ?>
+
+                    <?php foreach ($this->usuarios as $usuario) : ?>
+                        <tr>
+                            <td class="align-center"><?php echo $usuario->id; ?></td>
+                            <td><?php echo $usuario->nome; ?></td>
+                            <td class="align-center"><?php echo ($usuario->ativo == 1 ? 'Sim' : 'Não'); ?></td>
+                            <td class="align-center">
+                                <?php if ($usuario->ativo == 1) : ?>
+                                    <a href="/admin/usuarios/inativar/id/<?php echo $usuario->id; ?>" class="icon-arrow-down" alt="Desativar Usuário" title="Desativar Usuário"></a>
+                                <?php endif; ?>
+
+                                <?php if ($usuario->ativo == 0) : ?>
+                                    <a href="/admin/usuarios/ativar/id/<?php echo $usuario->id; ?>" class="icon-arrow-up" alt="Ativar Usuário" title="Ativar Usuário"></a>
+                                <?php endif; ?>
+                                    
+                                &nbsp;
+                                <a href="/admin/usuarios/edit/id/<?php echo $usuario->id; ?>" class="icon-edit" alt="Editar Usuário" title="Editar Usuário"></a>
+                                <a href="/admin/usuarios/delete/id/<?php echo $usuario->id; ?>" class="icon-trash confirm" alt="Excluir Usuário" title="Excluir Usuário"></a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

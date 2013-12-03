@@ -5,6 +5,7 @@ return array(
     'MENU_NOTICIAS' => 'Notícias',
     'MENU_BANNERS' => 'Banners',
     'MENU_ALBUNS' => 'Albuns',
+    'MENU_USUARIOS' => 'Usuários',
     'MENU_CONFIGURACOES' => 'Configurações',
     'label.novaNoticia' => 'Nova Notícia',
     'label.novoUsuario' => 'Novo Usuário',

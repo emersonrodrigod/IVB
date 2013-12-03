@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row-fluid">
+        <div class="span12">
+
+            <div id="jCrumbs" class="breadCrumb module">
+                <ul>
+                    <li>
+                        <a href="/admin"><i class="icon-home"></i></a>
+                    </li>
+                    <li>
+                        <a href="/admin/noticias">Listagem de Notícias</a>
+                    </li>
+                    <li>
+                        <a href="#">Nova Notícia</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <form class="form-horizontal well validate" method="post">
+            <fieldset>
+                <p class="f_legend">Nova Notícia</p>
+                <div class="control-group">
+                    <label class="control-label">Título </label>
+                    <div class="controls">
+                        <input type="text" class="span6" maxlength="200" minlength="2" name="titulo" required />
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Conteúdo </label>
+                    <div class="controls">
+                        <textarea name="texto" class="editor" rows="20" cols="50" required></textarea>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        <button class="btn btn-info" type="submit">Gravar</button>
+                        <a href="javascript:history.go(-1);" class="btn btn-danger">Cancelar</a>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

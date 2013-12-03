@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row-fluid">
+        <div class="span12">
+
+            <div id="jCrumbs" class="breadCrumb module">
+                <ul>
+                    <li>
+                        <a href="/admin"><i class="icon-home"></i></a>
+                    </li>
+                    <li>
+                        <a href="/admin/usuarios">Listagem de Usuários</a>
+                    </li>
+                    <li>
+                        <a href="#">Editar Usuário</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <form class="form-horizontal well validate" method="post">
+            <fieldset>
+                <p class="f_legend">Editar Usuário</p>
+                <div class="control-group">
+                    <label class="control-label">Nome do Usuário </label>
+                    <div class="controls">
+                        <input type="text" class="span6" maxlength="100" minlength="2" name="nome" required value="<?php echo $this->usuario->nome; ?>"/>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">E-mail do Usuário </label>
+                    <div class="controls">
+                        <input type="text" class="span4" maxlength="255" minlength="2" name="email" required value="<?php echo $this->usuario->email; ?>"/>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        <button class="btn btn-info" type="submit">Gravar</button>
+                        <a href="javascript:history.go(-1);" class="btn btn-danger">Cancelar</a>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

@@ -31,6 +31,22 @@ class Admin_AuthController extends Zend_Controller_Action {
         }
     }
 
+    public function passwordAction() {
+        $this->_helper->viewRenderer->setNoRender();
+        $this->_helper->layout->disableLayout();
+
+        if ($this->getRequest()->isPost()) {
+            $usuario = new Usuario();
+            $dados = $this->_request->getPost();
+
+            $data = array(
+                'senha' => sha1($dados['senha'])
+            );
+
+            $usuario->update($data, "id = {$dados['id']}");
+        }
+    }
+
     public function logoutAction() {
         $this->_helper->viewRenderer->setNoRender();
         $this->_helper->layout->disableLayout();

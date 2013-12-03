@@ -1,9 +1,12 @@
+<?php
+$user = Zend_Auth::getInstance()->getIdentity();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>waPanel</title>
+        <title>IVB - Painel de administração</title>
 
         <!-- Bootstrap framework -->
         <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
@@ -114,7 +117,7 @@
         <!-- enhanced select (chosen) -->
         <script src="/lib/chosen/chosen.jquery.min.js"></script>
         <!-- TinyMce WYSIWG editor -->
-        <script src="/lib/tiny_mce/jquery.tinymce.js"></script>
+        <script src="/lib/tinymce/js/tinymce/tinymce.min.js"></script>
         <!-- colorpicker -->
         <script src="/lib/colorpicker/bootstrap-colorpicker.js"></script>
         <!-- password strength checker -->
@@ -162,11 +165,14 @@
                 <div class="navbar navbar-fixed-top">
                     <div class="navbar-inner">
                         <div class="container-fluid">
-                            <a class="brand" href="/index">waPanel</a>
+                            <a class="brand" href="/index">IVB</a>
+                            
                             <ul class="nav user_menu pull-right">
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="user_avatar" alt="" src="/lib/img/user_avatar.png"> <b class="caret"></b></a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="user_avatar" alt="" src="/lib/img/user_avatar.png"><?php echo ucfirst($user->nome); ?> <b class="caret"></b></a>
+
                                     <ul class="dropdown-menu">
+                                        <li><a  href="#myModal" role="button" data-toggle="modal">Alterar Senha</a></li>
                                         <li><a href="/admin/auth/logout">Sair</a></li>
                                     </ul>
                                 </li>
@@ -187,10 +193,10 @@
                                             <a href="/admin/banners"><i class="icon-fullscreen icon-white"></i> <?php echo $this->translate('MENU_BANNERS'); ?></a>
                                         </li>
                                         <li>
-                                            <a href="/admin/albuns"><i class="icon-user icon-white"></i> <?php echo $this->translate('MENU_ALBUNS'); ?></a>
+                                            <a href="/admin/albuns"><i class="icon-screenshot icon-white"></i> <?php echo $this->translate('MENU_ALBUNS'); ?></a>
                                         </li>
                                         <li>
-                                            <a href="/admin/configuracoes"><i class="icon-wrench icon-white"></i> <?php echo $this->translate('MENU_CONFIGURACOES'); ?></a>
+                                            <a href="/admin/usuarios"><i class="icon-user icon-white"></i> <?php echo $this->translate('MENU_USUARIOS'); ?></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -208,6 +214,63 @@
                     <?php echo $this->layout()->content; ?>
                 </div>
             </div>
+
+            <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">Alterar Senha</h3>
+                </div>
+                <div class="modal-body">
+                    <form id="formPassword">
+                        <input type="hidden" value="<?php echo $user->id; ?>" name="id" />
+                        <div class="control-group">
+                            <label class="control-label">Digite a nova senha: </label>
+                            <div class="controls">
+                                <input type="password" id="senha" class="span5" maxlength="150" minlength="2" name="senha" required />
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Confirme a nova senha: </label>
+                            <div class="controls">
+                                <input type="password" id="confirm" class="span5" maxlength="150" minlength="2" required />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+                    <button class="btn btn-primary" id="changePassword">Alterar Senha</button>
+                </div>
+            </div>
+
+            <script>
+                $("#changePassword").click(function() {
+                    var dados = $("#formPassword").serialize();
+                    if ($("#senha").val() === '') {
+                        alert('Campo senha não pode ser vazio');
+                    }
+                    else if($("#senha").val() !== $("#confirm").val()) {
+                        alert('Senhas não conferem!');
+                    }
+                    else {
+
+                        $.ajax({
+                            url: '/admin/auth/password',
+                            type: 'POST',
+                            data: dados,
+                            success: function(data) {
+                                alert('Sua Senha foi alterada com sucesso!');
+                                $("#senha").attr('value', '');
+                                $("#myModal").modal("hide");
+                            },
+                            error: function(msgError) {
+                                $("#senha").attr('value', '');
+                            }
+                        });
+                    }
+                });
+            </script>
         </div>
     </body>
 </html>

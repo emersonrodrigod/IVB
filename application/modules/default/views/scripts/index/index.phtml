@@ -12,17 +12,29 @@
 <div class="row-fluid">
     <div id="slide" class="carousel slide">
         <ol class="carousel-indicators">
-            <?php $i = 0; foreach ($this->banners as $banner) : ?>
+            <?php
+            $i = 0;
+            foreach ($this->banners as $banner) :
+                ?>
                 <li data-target="#slide" data-slide-to="<?php echo $i ?>" <?php echo ($i == 0 ? 'class="active"' : ''); ?>></li>
-            <?php $i++; endforeach; ?>
+                <?php
+                $i++;
+            endforeach;
+            ?>
         </ol>
 
         <div class="carousel-inner">
-            <?php $j = 0; foreach ($this->banners as $banner) : ?>
-            <div class="item <?php echo ($j == 0 ? 'active' : ''); ?>">
-                <img src="/<?php echo $banner->caminho; ?>" alt="<?php echo $banner->nome; ?>" width="979" height="242"/>
-            </div>
-            <?php $j++; endforeach; ?>
+            <?php
+            $j = 0;
+            foreach ($this->banners as $banner) :
+                ?>
+                <div class="item <?php echo ($j == 0 ? 'active' : ''); ?>">
+                    <img src="/<?php echo $banner->caminho; ?>" alt="<?php echo $banner->nome; ?>" width="979" height="242"/>
+                </div>
+                <?php
+                $j++;
+            endforeach;
+            ?>
         </div>
         <a class="left carousel-control" href="#slide" data-slide="prev">&lsaquo;</a>
         <a class="right carousel-control" href="#slide" data-slide="next">&rsaquo;</a>
@@ -37,22 +49,20 @@
                 <div class="content-block">
                     <div class="content-block-header"><span>Notícias</span></div>
                     <div class="content-body">
-                        <h3>O IVB tem um novo Site</h3>
-                        <p>
-                            O IVB - Instituto Vicentino´s do Brasil foi fundado no final de 2006, iniciando suas atividades 
-                            em 12/03/07.<a href="/historico">[veja mais]</a>
-                        </p>
 
-                        <hr/>
+                        <?php $i = 0;
+                        foreach ($this->noticias as $noticia) : ?>
+                            <h3><?php echo $noticia->titulo; ?></h3>
+                            <p>
+    <?php echo strip_tags($noticia->texto); ?> <a href="/noticias/single/id/<?php echo $noticia->id; ?>">[Veja mais]</a>
+                            </p>
 
-                        <h3>Título da notícia principal</h3>
-                        <p>
-                            O IVB - Instituto Vicentino´s do Brasil foi fundado no final de 2006, iniciando suas atividades 
-                            em 12/03/07... <a href="#">[veja mais]</a>
-                        </p>
+                            <?php echo ($i == 0 ? '<hr/>' : '') ?>
+    <?php $i++;
+endforeach; ?>
                     </div>
                     <div class="content-block-footer clearfix">
-                        <a href="#" class="mais"><img src="/img/mais.jpg" /></a>
+                        <a href="/noticias" class="mais"><img src="/img/mais.jpg" /></a>
                     </div>
                 </div>
             </div>
@@ -82,17 +92,17 @@
         <div class="row-fluid">
             <div class="span6">
                 <div class="content-block">
-                    <div class="content-block-header"><span>PPO - Projeto Pintando Oportunidade</span></div>
+                    <div class="content-block-header"><span>PSB - Projeto Saúde e Beleza</span></div>
                     <div class="content-body">
-                        <img src="/img/ppo-bloco.jpg" class="flt-left"/>
+                        <img src="/img/psb-index.jpg" style="width: 174px; height: 130px;" class="flt-left"/>
                         <p>
-                            O fato de ser considerada uma ótima terapia, a pintura em tela contribui para garantir aos 
-                            indivíduos momentos de bem-estar numa das mais fascinantes e criativas atividades ...
-                            <a href="/projeto-pintando-oportunidade">[saiba mais]</a>
+                            A manicure e pedicure é a profissional responsável pelo embelezamento das unhas 
+                            das mãos e dos pés, por meio de técnicas de manipulação de instrumentos ...
+                            <a href="/projeto-saude-e-beleza">[saiba mais]</a>
                         </p>
                     </div>
                     <div class="content-block-footer clearfix">
-                        <a href="/projeto-pintando-oportunidade" class="mais"><img src="/img/mais.jpg" /></a>
+                        <a href="/projeto-saude-e-beleza" class="mais"><img src="/img/mais.jpg" /></a>
                     </div>
                 </div>
             </div>
